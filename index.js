@@ -7,16 +7,12 @@ const Document = function () {
 };
     // arrays 1 - 6 are owned by player 1
     const bankOne = [];
-    
     // arrays 7 - 12 are owned by player 2
     const bankTwo = [];
-    
     // Each cup starts with 4 stones/seeds(items in array)
-    
     const stone = 1;
     
     // The Play
-    
     // Creates an array that stores the information
     const cupArray = [];
     const bankArray = [];
