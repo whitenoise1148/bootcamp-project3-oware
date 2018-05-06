@@ -34,13 +34,13 @@ const bankHtmlElements = $('div.bank').toArray();
 const distributeStones = (numStones, cupIndex) => {
     // Take the number of stones in the object numStones
     // cupIndex will be used to determine where to distribute said stones
-    console.log(cupIndex);
+    // console.log(cupIndex);
     // if (cupIndex === 11) {
     //     cupIndex = -1;
     // }
 
-    console.log('cup ' + cupIndex);
-    console.log('This cup has ' + numStones + ' stones');
+    // console.log('cup ' + cupIndex);
+    // console.log('This cup has ' + numStones + ' stones');
     for (let i = cupIndex + 1; i < cupIndex + 1 + numStones; i++){
     // console.log(i);
     // console.log(cupArray[i].stoneCount);
@@ -58,14 +58,15 @@ const distributeStones = (numStones, cupIndex) => {
     } else {
         cupArray[cupIndex].stoneCount = 0;
     }
-    console.log(cupArray[cupIndex].stoneCount);
+    // console.log(cupArray[cupIndex].stoneCount);
 
     let removeStones = cupArray[cupIndex].stoneCount;
-    console.log(removeStones);
+    // console.log(removeStones);
     // Remove div.stone's from the clicked object
     if (removeStones === 0) {
         $(`.cup${cupIndex}`).empty();
     }
+
     // Loop through the array and remove all the div.stones if the stoneCount of the cup = 0
     for (let i = 0; i < cupArray.length; i++) {
         $(`.cup${i}`).empty();
@@ -76,9 +77,19 @@ const distributeStones = (numStones, cupIndex) => {
         for (let y = 0; y < cupArray[x].stoneCount; y++){
             // Adds div.stone to the cups equal to the stoneCount of that cup
             $(`.cup${x}`).append('<div class="stone"></div>');
+            
         }
-        console.log(cupArray[x].stoneCount);
+        
+        if (cupArray[x].stoneCount === 2 && 3) {
+            console.log('Capture');
+            $(`.bank`).append('<div class="stone"></div>');
+            cupArray[cupIndex].stoneCount = 0;
+            $(`.cup${x}`).empty();
+
+        }
+        // console.log(cupArray[x].stoneCount);
     }
+    
 
         // $(`.cup${i}`).append("<div class='stone'></div>");
 
@@ -92,10 +103,10 @@ const distributeStones = (numStones, cupIndex) => {
 const gameLogic = function(cup, cupIndex){
     // console.log(score);
     if (cup.stoneCount >= 1) {
-        console.log(cup.cupIndex + 'has' + cup.stoneCount + ' stone(s)');
+        // console.log(cup.cupIndex + 'has' + cup.stoneCount + ' stone(s)');
         distributeStones (cup.stoneCount, cup.cupIndex);
     } else {
-        console.log('This cup is empty');
+        // console.log('This cup is empty');
     }
 };
 
