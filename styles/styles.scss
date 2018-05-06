@@ -3,48 +3,115 @@
 @import 'utils';
 @import 'playerBoards';
 
+* {
+    padding: 0;
+    margin: 0;
+}
 
 body {
-    max-width: 1200px;
-    height: 100vh;
+    min-height: 1000px;
+}
 
+.wrap {
+    max-width: 1400px;
+    min-width: 525px;
+    margin: 0 auto;
+}
+header {
+    max-height: 10vh;
+    width: 100%;
+
+    nav {
+        width: 100%;
+        height: 100%;
+        background: gray;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        
+        ul {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            
+            
+            li {
+                list-style-type: none;
+                display: inline-block;
+                padding: 10px;
+
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    font-size: 1.2rem;
+                    text-shadow: 2px 1px 1px black;
+                }
+            }
+        }
+    }
 }
 
 main {
+    max-width: 1200px;
+    // max-height: calc(90vh - 5vh);
     background-color: #343434;
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-flow: column nowrap;
+    background-image: url(/images/bernard-hermant-632545-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
 }
 
 .board {
-    width: 90%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background:rgba(0,0,0,0.6);
+    width: 100%;
+    height: 90vh;
+    flex-basis: 90% auto;
+    display: flex;
+    flex-flow: column nowrap;
     align-items: center;
 }
 
 .side {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
 }
 
+.player-one-bank {
+    margin-top: 5vh;
+   
+}
+
+.playerTwo {
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    margin-bottom: 5%;
+}
 
 .bank {
     background: slategray;
     width: 60%;
-    height: 150px;
+     height: 5vh;
     border: 5px solid whitesmoke;
-    border-radius: 50%;
-    -ms-grid-row-align: center;
-
+    border-radius: 20%;
 }
 
 .cup {
-    border: 3px solid whitesmoke;
+    border: 3px solid rgba(129,81,3,1);
     border-radius: 50%;
+    background: rgba(129, 81, 3, 0.6);
+    box-shadow: 2px 3px ;
     width: 125px;
+    // min-width: 50px;
     height: 125px;
+    // min-height: 50px;
     margin: 25px;
     padding: 20px;
     display: flex;
@@ -55,9 +122,12 @@ main {
 }
 
 .stone {
-    width: 15px;
-    height: 15px;
-    background: whitesmoke;
+    max-width: 25px;
+    min-width: 5px;
+    max-height: 25px;
+    min-height: 5px;
+    margin: 2px;
+    background: white;
     border: 1px solid grey;
     border-radius: 50%;
     box-shadow: 1px 1px #4e4848;

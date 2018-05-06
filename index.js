@@ -2,7 +2,9 @@
 // Create 12 arrays(cups) + 2 arrays(banks)
 
 // Document Ready
-const Oware = {};
+const Document = function () {
+
+};
 
 // arrays 1 - 6 are owned by player 1
 const bankOne = [];
@@ -13,20 +15,6 @@ const bankTwo = [];
 // Each cup starts with 4 stones/seeds(items in array)
 
 const stone = 1;
-const cups = [
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-    [stone, stone, stone, stone],
-]
 
 // The Play
 
@@ -45,7 +33,7 @@ const bankHtmlElements = $('div.bank').toArray();
 
 const distributeStones = (numStones, cupIndex) => {
     // Take the number of stones in the object numStones
-    // cupIndex will help determine where to distribute said stones
+    // cupIndex will be used to determine where to distribute said stones
     console.log(cupIndex);
     // if (cupIndex === 11) {
     //     cupIndex = -1;
@@ -62,8 +50,6 @@ const distributeStones = (numStones, cupIndex) => {
         } else {
             cupArray[i].stoneCount = cupArray[i].stoneCount + 1;
         }
-        
-        
     };
     
     // console.log(cupIndex);
@@ -80,7 +66,7 @@ const distributeStones = (numStones, cupIndex) => {
     if (removeStones === 0) {
         $(`.cup${cupIndex}`).empty();
     }
-
+    // Loop through the array and remove all the div.stones if the stoneCount of the cup = 0
     for (let i = 0; i < cupArray.length; i++) {
         $(`.cup${i}`).empty();
     }
@@ -88,8 +74,8 @@ const distributeStones = (numStones, cupIndex) => {
     for (let x = 0; x < cupArray.length; x++) {
         // Loops through the stoneCount 
         for (let y = 0; y < cupArray[x].stoneCount; y++){
+            // Adds div.stone to the cups equal to the stoneCount of that cup
             $(`.cup${x}`).append('<div class="stone"></div>');
-            
         }
         console.log(cupArray[x].stoneCount);
     }
@@ -117,7 +103,6 @@ const gameLogic = function(cup, cupIndex){
 cupsHtmlElements.forEach((element, i) => {
     
     // For each div we are creating an object in cupArray[] to hold the information about that cup
-    // in the console type cupArray to see the creation
     cupArray[i] = {
         htmlElement: cupsHtmlElements[i],
         stoneCount: 4,
