@@ -11,7 +11,6 @@ const Document = function () {
     const bankTwo = [];
     // Each cup starts with 4 stones/seeds(items in array)
     const stone = 1;
-    
     // The Play
     // Creates an array that stores the information
     const cupArray = [];
